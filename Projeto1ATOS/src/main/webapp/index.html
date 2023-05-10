@@ -1,24 +1,52 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-<meta charset="utf-8">
-<title>Servlet Pessoas - Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+
+
+
 </head>
+
 <body>
-	<h1>Home Page</h1>
-	<p>
+    <h1>Bem-Vindo ao BD</h1>
+    <div class="container">
+        <h2>Escolha uma das opções abaixo: </h2>
+
 	<form method="post" action="listar" class="inline">
-		<input type="hidden" name="extra_submit_param"
-			value="extra_submit_value">
-		<button type="submit" name="submit_param" value="submit_value"
-			class="link-button">Listar Produtos</button>
+
+        <a href="index1.jsp">
+
+            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+
+            <button type="submit" name="submit_param" value="submit_value" class="link-button">Listar Produtos</button>
+
+        </a>
+   </form>
+
+   <form method="post" action="add" class="inline">
+        <a href="cadastrar.html">
+            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+            <button type="submit" name="submit_param" value="submit_value" class="link-button">Cadastrar
+                Produtos</button>
+        </a>
 	</form>
-	<p>
-	<form method="post" action="add" class="inline">
-		<input type="hidden" name="extra_submit_param"
-			value="extra_submit_value">
-		<button type="submit" name="submit_param" value="submit_value"
-			class="link-button">Cadastrar Produtos</button>
-	</form>
+        <a href="index3.html">
+            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+            <button type="submit" name="submit_param" value="submit_value" class="link-button">Atualizar
+                Produtos</button>
+        </a>
+        <a href="index4.html">
+            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+            <button type="submit" name="submit_param" value="submit_value" class="link-button">Deletar Produtos</button>
+        </a>
+
+    </div>
+
 </body>
+
 </html>

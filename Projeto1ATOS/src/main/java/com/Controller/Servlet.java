@@ -56,21 +56,18 @@ public class Servlet extends HttpServlet {
 			Produto p = new Produto(codigo,nome,categoria, valor, quantidade);
 			r.cadastrarProduto(p);
 			request.setAttribute("listaProdutos", listarProdutos());
-			RequestDispatcher rd = request.getRequestDispatcher("produtos.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("listar.jsp");
 			rd.forward(request, response);
 		}
-
 		if (path.equals("/listar")) {
 			request.setAttribute("listaProdutos", listarProdutos());
-			RequestDispatcher rd = request.getRequestDispatcher("produtos.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("listar.jsp");
 			rd.forward(request, response);
 		}
 	}
-	
 	protected List<Produto>listarProdutos() {
 		List<Produto> listaProdutos = new ArrayList<>();
 		listaProdutos = r.consultarProdutos();
 		return listaProdutos;
 	}
-
 }
