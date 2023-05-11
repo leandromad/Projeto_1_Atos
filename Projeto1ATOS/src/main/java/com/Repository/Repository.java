@@ -68,5 +68,32 @@ public class Repository {
 		}
 		return listaProdutos;
 	}
+	
+	public void excluirProduto(int id) {
+	    String delete = "DELETE FROM produto WHERE id = ?";
+	    
+	    try (Connection c = DriverManager.getConnection(db_url, db_user, db_password);
+	        PreparedStatement pst = c.prepareStatement(delete)) {
+	        pst.setInt(1, id);
+	        pst.executeUpdate();
+	    } catch (SQLException e) {
+	        System.out.println("Falha ao excluir o produto do banco de dados: " + e.getMessage());
+	    }
+	}
+	
+	public void atualizarProduto(Produto p) {
+	    String update = "UPDATE produto SET nome = ?, categoria = ?, valor = ?, quantidade = ? WHERE id = ?";
 
+	    try (Connection c = DriverManager.getConnection(db_url, db_user, db_password);
+	         PreparedStatement pst = c.prepareStatement(update)) {
+	        pst.setString(1, p.getNome());
+	        pst.setString(2, p.getCategoria());
+	        pst.setFloat(3, p.getValor());
+	        pst.setInt(4, p.getQuantidade());
+	        pst.setInt(5, (int) p.getId());
+	        pst.executeUpdate();
+	    } catch (SQLException e) {
+	        System.out.println("Falha ao atualizar o produto no banco de dados: " + e.getMessage());
+	    }
+	}
 }

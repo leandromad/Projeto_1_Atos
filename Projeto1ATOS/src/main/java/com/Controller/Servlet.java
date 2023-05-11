@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.Repository.Repository;
 
-@WebServlet(urlPatterns = { "/inserir", "/listar", "/home", "/add" })
+@WebServlet(urlPatterns = { "/inserir", "/listar", "/home", "/add", "/deletar", "/alterar" })
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Repository r = new Repository("jdbc:mysql://localhost:3306/projetoatos", "root", "");
@@ -63,6 +63,36 @@ public class Servlet extends HttpServlet {
 			request.setAttribute("listaProdutos", listarProdutos());
 			RequestDispatcher rd = request.getRequestDispatcher("listar.jsp");
 			rd.forward(request, response);
+		}
+		
+		if (path.equals("/deletar")) {
+			request.setAttribute("listaProdutos", listarProdutos());
+		    String idParameter = request.getParameter("id");
+		    if (idParameter != null && !idParameter.isEmpty()) {
+		        int id = Integer.parseInt(idParameter);
+		        r.excluirProduto(id);
+		    }
+		    request.setAttribute("listaProdutos", listarProdutos());
+		    RequestDispatcher rd = request.getRequestDispatcher("deletar.jsp");
+		    rd.forward(request, response);
+		    
+		}
+		
+		if (path.equals("/alterar")) {
+			request.setAttribute("listaProdutos", listarProdutos());
+		    String idParameter = request.getParameter("id");
+		    if (idParameter != null && !idParameter.isEmpty()) {
+		        int id = Integer.parseInt(idParameter);
+		        String nome = request.getParameter("nome");
+		        String categoria = request.getParameter("categoria");
+		        float valor = Float.parseFloat(request.getParameter("valor"));
+		        int quantidade = Integer.parseInt(request.getParameter("quantidade"));
+		        Produto produto = new Produto(id, nome, categoria, valor, quantidade);
+		        r.atualizarProduto(produto);
+		    }
+		    request.setAttribute("listaProdutos", listarProdutos());
+		    RequestDispatcher rd = request.getRequestDispatcher("alterar.jsp");
+		    rd.forward(request, response);
 		}
 	}
 	protected List<Produto>listarProdutos() {

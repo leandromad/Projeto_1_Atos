@@ -18,32 +18,25 @@
         <h2>Escolha uma das opções abaixo: </h2>
 
 	<form method="post" action="listar" class="inline">
-
-        <a href="index1.jsp">
-
             <input type="hidden" name="extra_submit_param" value="extra_submit_value">
 
             <button type="submit" name="submit_param" value="submit_value" class="link-button">Listar Produtos</button>
-
-        </a>
    </form>
 
    <form method="post" action="add" class="inline">
-        <a href="cadastrar.html">
-            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
-            <button type="submit" name="submit_param" value="submit_value" class="link-button">Cadastrar
+           <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+           <button type="submit" name="submit_param" value="submit_value" class="link-button">Cadastrar
                 Produtos</button>
-        </a>
 	</form>
-        <a href="index3.html">
-            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
-            <button type="submit" name="submit_param" value="submit_value" class="link-button">Atualizar
-                Produtos</button>
-        </a>
-        <a href="index4.html">
-            <input type="hidden" name="extra_submit_param" value="extra_submit_value">
-            <button type="submit" name="submit_param" value="submit_value" class="link-button">Deletar Produtos</button>
-        </a>
+	<form method="post" action="alterar" class="inline">
+           <input type="hidden" name="extra_submit_param" value="extra_submit_value">
+           <button type="submit" name="submit_param" value="submit_value" class="link-button">Atualizar
+                Produtos</button>
+	</form>
+        <form method="post" action="deletar" class="inline">
+    		<input type="hidden" name="extra_submit_param" value="extra_submit_value">
+    		<button type="submit" name="submit_param" value="submit_value" class="link-button">Deletar Produtos</button>
+		</form>
 
     </div>
 

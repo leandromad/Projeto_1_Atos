@@ -75,12 +75,5 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
-	
-	
-	//@Override
-	//public String toString() {
-		//return "Pessoa [id=" + id + ", nome=" + nome + ", password=" + password + ", email=" + email + "]";
-	//}
-	
+
 }
